@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nagi's toolbox</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>nagi's toolbox</h1>
+            <p class="subtitle">自作ツール置き場</p>
+        </header>
+
+        <div class="tools">
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-badge badge-web">Web App</span>
+                    <span class="tool-name">LINE文字入りアイコンメーカー</span>
+                </div>
+                <p class="tool-desc">画像にカラーフィルターとテキストを重ねて、LINEアイコンを作成するツール。ブラウザだけで完結、サーバーへの送信なし。</p>
+                <div class="tool-tech"><span class="tech-tag">HTML</span><span class="tech-tag">Canvas API</span><span class="tech-tag">TailwindCSS</span></div>
+                <div class="tool-actions">
+                    <a href="./tools/line-icon-maker/" class="btn btn-primary"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> 使ってみる</a>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-header">
+                    <span class="tool-badge badge-ext">Chrome拡張</span>
+                    <span class="tool-name">Claude Timer (AI Usage Tracker)</span>
+                </div>
+                <p class="tool-desc">Claudeのメッセージ制限リセットまでの残り時間を、ブラウザのツールバーにバッジ表示。ワンクリックで使用量ページを確認できる。</p>
+                <div class="tool-tech"><span class="tech-tag">Chrome Extension</span><span class="tech-tag">Manifest V3</span><span class="tech-tag">JavaScript</span></div>
+                <div class="tool-actions">
+                    <a href="./tools/claude-timer/claude-timer.zip" class="btn btn-primary" download><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg> ZIPダウンロード</a>
+                    <a href="./tools/claude-timer/README.html" class="btn btn-secondary"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg> 使い方</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p><a href="https://github.com/nagi-y">GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>

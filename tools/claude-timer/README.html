@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Timer - 使い方</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Hiragino Sans', sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+        }
+        h1 { color: #f8fafc; margin-bottom: 0.5rem; }
+        h2 {
+            color: #cbd5e1;
+            margin-top: 2rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 0.3rem;
+        }
+        ol, ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        code {
+            background: #1e293b;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        a { color: #60a5fa; }
+        .back {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .back:hover { color: #94a3b8; }
+    </style>
+</head>
+<body>
+    <a href="../.." class="back">&larr; ツール一覧に戻る</a>
+    <h1>Claude Timer (AI Usage Tracker)</h1>
+    <p>Claudeのメッセージ制限リセットまでの残り時間を、ブラウザのツールバーにバッジ表示するChrome拡張機能です。</p>
+
+    <h2>インストール方法</h2>
+    <ol>
+        <li>ZIPファイルをダウンロードして解凍する</li>
+        <li>Chrome で <code>chrome://extensions/</code> を開く</li>
+        <li>右上の「デベロッパーモード」を ON にする</li>
+        <li>「パッケージ化されていない拡張機能を読み込む」をクリック</li>
+        <li>解凍したフォルダを選択</li>
+    </ol>
+
+    <h2>使い方</h2>
+    <ol>
+        <li>ブラウザ右上のアイコンをピン留めする</li>
+        <li>アイコンをクリック → Claude の使用量ページが開く</li>
+        <li>自動的にリセット時間を読み取り、バッジに表示</li>
+        <li>リセット完了で緑色の「OK」表示</li>
+    </ol>
+
+    <h2>注意事項</h2>
+    <ul>
+        <li>Claudeの画面デザインが変わると読み取れなくなる可能性があります</li>
+        <li>非公式の学習用プロジェクトです</li>
+    </ul>
+</body>
+</html>
