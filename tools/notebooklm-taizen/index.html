@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIと始める新しい日常 | Gemini & NotebookLM 15本ノック</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff7ed',  // Warm background
+                            100: '#ffedd5',
+                            500: '#f97316',  // Primary accent
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            900: '#7c2d12',
+                        },
+                        secondary: {
+                            600: '#0d9488', // Teal accent
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Hiragino Sans"', '"Hiragino Kaku Gothic ProN"', 'Meiryo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Chosen Palette: Warm & Friendly (brand-50 background, brand-600 primary, secondary-600 teal for balance) -->
+    <!-- Application Structure Plan:
+      1. Hero: Welcoming introduction targeting local business owners, homemakers, and seniors.
+      2. Intro & Value (Chart): Radar chart comparing Free vs Advanced versions to show the value of upgrading (Gemini 3.1 era capabilities).
+      3. Interactive Gallery (15 Use Cases): A filterable grid of 15 practical use cases. This allows users to explore specific needs without feeling overwhelmed.
+      4. Diagnostic Tool: Interactive Q&A to recommend a personalized first step, increasing engagement.
+    -->
+    <!-- Visualization & Content Choices:
+      1. Free vs Paid Comparison -> Goal: Illustrate the "why pay?" logically -> Radar Chart (Chart.js) -> Clear, multi-dimensional visual comparison -> Library: Chart.js.
+      2. Use Case Gallery -> Goal: Organize diverse information -> Filterable Grid (Vanilla JS + Tailwind) -> Easy scanning and categorization.
+      3. Use Case Details -> Goal: Explain the "how-to" -> Modal/Expandable text -> Keeps the main view clean.
+      4. Diagnostic Tool -> Goal: Actionable advice -> Step-by-step logic (Vanilla JS) -> Guides hesitant users.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body {
+            background-color: #fff7ed; /* brand-50 */
+            color: #334155; /* slate-700 */
+        }
+        
+        /* Chart Container Mandatory Styling */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 640px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        /* Utilities */
+        .hide { display: none !important; }
+        .fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-brand-700">✨ AIナビゲーター</h1>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#about" class="hover:text-brand-600 transition">AIの違いと実力</a>
+                <a href="#cases" class="hover:text-brand-600 transition">15本ノック事例</a>
+                <a href="#diagnostic" class="hover:text-brand-600 transition">あなたに合うAI診断</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="max-w-6xl mx-auto px-4 py-12 md:py-20 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-800 mb-6 leading-tight">
+                あなたの日常と仕事を、<br class="md:hidden">もっとラクに、もっと楽しく。
+            </h2>
+            <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+                「AIって難しそう…」そんなあなたへ。<br>
+                地域の個人事業主さん、主婦の方、シニア世代でも今日から使える<b>Gemini</b>と<b>NotebookLM</b>の実用事例を15個厳選しました。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#cases" class="bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1 text-lg">
+                    事例を見る 📖
+                </a>
+                <a href="#diagnostic" class="bg-white hover:bg-gray-50 text-brand-600 font-bold py-3 px-8 rounded-full shadow-lg border border-brand-200 transition transform hover:-translate-y-1 text-lg">
+                    おすすめ診断 🔍
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 1: About Gemini & NotebookLM & Pricing -->
+        <section id="about" class="bg-white py-16">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">GeminiとNotebookLMって何が違うの？</h3>
+                    <p class="text-gray-600 max-w-3xl mx-auto">
+                        用途に合わせて使い分けるのがコツです。さらに、Geminiには無料版と有料版(Advanced)があり、できることの「深さ」が違います。
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Text Description -->
+                    <div class="space-y-6">
+                        <div class="bg-brand-50 p-6 rounded-xl border border-brand-100">
+                            <h4 class="text-xl font-bold text-brand-700 mb-2">💬 Gemini (ジェミニ)</h4>
+                            <p class="text-gray-700">
+                                <b>万能なアシスタント。</b>文章の作成、画像の読み取り、アイデア出しからプログラミングまで何でもこなします。<br>
+                                <span class="text-sm bg-brand-200 text-brand-800 px-2 py-1 rounded mt-2 inline-block">おすすめ: ゼロから何かを生み出したい時</span>
+                            </p>
+                        </div>
+                        <div class="bg-teal-50 p-6 rounded-xl border border-teal-100">
+                            <h4 class="text-xl font-bold text-teal-800 mb-2">📚 NotebookLM</h4>
+                            <p class="text-gray-700">
+                                <b>あなた専用の資料まとめ係。</b>PDFや音声、サイトのURLを読み込ませると、その内容「だけ」に基づいて正確に答えてくれます。<br>
+                                <span class="text-sm bg-teal-200 text-teal-800 px-2 py-1 rounded mt-2 inline-block">おすすめ: 大量の手持ち資料を整理・分析したい時</span>
+                            </p>
+                        </div>
+                        
+                        <div class="pt-4 border-t border-gray-200">
+                            <h4 class="font-bold text-gray-800 mb-2">💰 無料版 vs 有料版 (Gemini Advanced)</h4>
+                            <p class="text-sm text-gray-600 mb-2">
+                                無料版でも十分すごいですが、最新のAIモデルを使える「Advanced」は頭の良さが段違いです。特に<b>「長文の読み込み」「複雑な指示の理解」「自然な文章力」</b>を求めるなら課金の価値ありです。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Chart Container -->
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="text-center font-bold text-gray-700 mb-2">実力比較イメージ</h4>
+                        <div class="chart-container">
+                            <canvas id="comparisonChart"></canvas>
+                        </div>
+                        <p class="text-xs text-center text-gray-500 mt-2">※最新モデルの一般的な能力イメージです</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: 15 Use Cases Gallery -->
+        <section id="cases" class="py-16">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-10">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-4">実践！活用事例15本ノック ⚾️</h3>
+                    <p class="text-gray-600">あなたの生活や仕事を変える、具体的な使い方アイデア集です。</p>
+                </div>
+
+                <!-- Filters -->
+                <div class="flex flex-wrap justify-center gap-3 mb-10" id="filter-buttons">
+                    <button class="filter-btn active bg-brand-600 text-white px-5 py-2 rounded-full font-medium transition" data-filter="all">すべて</button>
+                    <button class="filter-btn bg-white text-gray-600 border border-gray-300 hover:bg-gray-50 px-5 py-2 rounded-full font-medium transition" data-filter="biz">商売・ビジネス 💼</button>
+                    <button class="filter-btn bg-white text-gray-600 border border-gray-300 hover:bg-gray-50 px-5 py-2 rounded-full font-medium transition" data-filter="life">日常・地域活動 🏡</button>
+                    <button class="filter-btn bg-white text-gray-600 border border-gray-300 hover:bg-gray-50 px-5 py-2 rounded-full font-medium transition" data-filter="dev">自動化・ちょこっと開発 ⚙️</button>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cases-grid">
+                    <!-- Cases will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Diagnostic Tool -->
+        <section id="diagnostic" class="bg-white py-16 border-t border-gray-200">
+            <div class="max-w-3xl mx-auto px-4 text-center">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">🤔 「で、私は何から始めればいい？」</h3>
+                <p class="text-gray-600 mb-8">簡単な質問に答えて、あなたにピッタリの最初の1歩を見つけましょう。</p>
+
+                <div class="bg-brand-50 rounded-2xl p-8 shadow-inner border border-brand-100" id="quiz-container">
+                    <div id="quiz-question" class="text-xl font-bold text-brand-900 mb-6">
+                        Q1. 今、一番「面倒くさいな」「時間がかかるな」と思うことは何ですか？
+                    </div>
+                    <div id="quiz-options" class="flex flex-col gap-3">
+                        <button class="quiz-btn bg-white border-2 border-brand-200 hover:border-brand-500 text-gray-700 font-medium py-3 px-6 rounded-lg transition" onclick="nextQuestion('A')">文章を考えたり、資料を作ること</button>
+                        <button class="quiz-btn bg-white border-2 border-brand-200 hover:border-brand-500 text-gray-700 font-medium py-3 px-6 rounded-lg transition" onclick="nextQuestion('B')">手作業の事務処理や、情報の整理</button>
+                        <button class="quiz-btn bg-white border-2 border-brand-200 hover:border-brand-500 text-gray-700 font-medium py-3 px-6 rounded-lg transition" onclick="nextQuestion('C')">日々の献立や、趣味の行き詰まり</button>
+                    </div>
+                </div>
+
+                <!-- Quiz Result (Hidden initially) -->
+                <div id="quiz-result" class="hide bg-brand-600 text-white rounded-2xl p-8 shadow-lg">
+                    <h4 class="text-2xl font-bold mb-4">💡 あなたにおすすめの事例はコレ！</h4>
+                    <p id="result-text" class="text-lg mb-6"></p>
+                    <button onclick="resetQuiz()" class="bg-white text-brand-600 font-bold py-2 px-6 rounded-full hover:bg-gray-100 transition">
+                        もう一度診断する
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-8 text-center">
+        <div class="max-w-6xl mx-auto px-4">
+            <p class="mb-2">※ 本サイトで紹介しているAIの機能や回答は一例です。実際の結果は異なる場合があります。</p>
+            <p>&copy; 2026 AI Navigator for Everyone</p>
+        </div>
+    </footer>
+
+    <!-- Use Case Detail Modal -->
+    <div id="case-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[60] flex items-center justify-center hide px-4">
+        <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl transform transition-all p-6 relative fade-in">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            <div id="modal-content">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Data: 15 Use Cases ---
+        const casesData = [
+            // Business
+            {
+                id: 1, category: 'biz', tool: 'Gemini', level: '無料版でOK',
+                title: '魅力的なチラシのキャッチコピー＆構成案',
+                icon: '📝',
+                short: 'ターゲットと商材を伝えるだけで、刺さる言葉を提案。',
+                prompt: '「地元野菜を使ったカフェのオープンチラシを作りたいです。ターゲットは30代主婦。キャッチコピーを5つと、チラシに入れるべき項目を教えてください。」'
+            },
+            {
+                id: 2, category: 'biz', tool: 'NotebookLM', level: '無料版でOK',
+                title: '複数業者の見積書PDFを比較・最安値分析',
+                icon: '📊',
+                short: '面倒な比較作業をAIが一瞬で表にまとめます。',
+                prompt: '（複数のPDFをアップロードして）「これらの見積書を比較して、各社の総額、納期、備考をマークダウンの表形式でまとめてください。」'
+            },
+            {
+                id: 3, category: 'biz', tool: 'Gemini', level: '無料版でOK',
+                title: 'クレーム対応メールの角が立たない返信文',
+                icon: '🙇',
+                short: '怒っているお客様へ、誠意が伝わる文章を冷静に作成。',
+                prompt: '「商品の到着が遅れたというクレームメールが来ました。謝罪しつつ、明日には必ず届くことを伝える、丁寧で角が立たない返信文を書いてください。」'
+            },
+            {
+                id: 4, category: 'biz', tool: 'Gemini', level: 'Advanced推奨',
+                title: '手書きメモから清書＆マニュアル作成',
+                icon: '📸',
+                short: '殴り書きのメモを写真で撮るだけ。画像認識能力を活用。',
+                prompt: '（メモの写真を添付して）「この手書きメモの内容を読み取り、新人アルバイト向けの業務マニュアルとして、箇条書きで分かりやすく清書してください。」'
+            },
+            {
+                id: 5, category: 'biz', tool: 'Gemini', level: '無料版でOK',
+                title: 'メルカリ出品用の魅力的な説明文を自動生成',
+                icon: '👗',
+                short: '商品の写真を撮るだけで、売れる説明文が完成。',
+                prompt: '（服の写真を添付して）「この写真をメルカリに出品します。ブランド名、色、状態などの特徴を抽出して、購入したくなるような魅力的な説明文を作ってください。」'
+            },
+            // Life & Community
+            {
+                id: 6, category: 'life', tool: 'NotebookLM', level: '無料版でOK',
+                title: '会議の録音データから議事録と要約作成',
+                icon: '🎙️',
+                short: '音声ファイル(.mp3等)を投げるだけで要点がまとまる！',
+                prompt: '（音声ファイルをアップロードして）「この会議の主な決定事項と、次回までの宿題（誰が・何を・いつまでに）を箇条書きで抽出してください。」'
+            },
+            {
+                id: 7, category: 'life', tool: 'Gemini', level: '無料版でOK',
+                title: '町内会だよりのレイアウト案と季節の挨拶',
+                icon: '🌸',
+                short: '毎月悩む時候の挨拶も、AIに任せればすぐ完成。',
+                prompt: '「5月に発行する町内会だよりの冒頭の挨拶文を書いてください。親しみやすいトーンで。また、今月のトピック（ゴミ出しルール変更、夏祭りボランティア募集）の配置レイアウト案を教えてください。」'
+            },
+            {
+                id: 8, category: 'life', tool: 'Gemini', level: 'Advanced推奨',
+                title: '冷蔵庫の残り物写真から1週間の献立提案',
+                icon: '🍳',
+                short: '写真から食材を認識し、栄養バランスも考慮して提案。',
+                prompt: '（冷蔵庫の中の写真を添付して）「ここにある食材を使って、今日から3日分の夕食の献立を考えてください。買い物は最小限にしたいです。」'
+            },
+            {
+                id: 9, category: 'life', tool: 'Gemini', level: '無料版でOK',
+                title: '自治体の難解な資料を小学生レベルで要約',
+                icon: '👶',
+                short: 'お役所言葉で書かれた書類も、やさしい言葉に変換。',
+                prompt: '（PDFやテキストを貼り付けて）「この補助金の申請に関する説明文が難しくて分かりません。小学6年生でも理解できる言葉で、要点だけを3行で教えてください。」'
+            },
+            {
+                id: 10, category: 'life', tool: 'Gemini', level: 'Advanced推奨',
+                title: '趣味の俳句や短歌の推敲、英語への翻訳',
+                icon: '✍️',
+                short: 'Advancedの高い言語能力で、より美しい表現を探求。',
+                prompt: '「『秋の夜長 虫の音響く 窓辺かな』という句を作りました。より情景が浮かぶように、少し言葉を変えたパターンを3つ提案し、それぞれ英語にも翻訳してください。」'
+            },
+            // Dev & Automation
+            {
+                id: 11, category: 'dev', tool: 'Gemini', level: 'Advanced推奨',
+                title: '（決済なし）ミニマムPOSアプリ開発',
+                icon: '💻',
+                short: 'プログラミング知識ゼロでも、動くWebアプリが作れる。',
+                prompt: '「HTML/CSS/JavaScriptを1つのファイルで書いてください。カフェの簡易レジアプリです。コーヒー(400円)、紅茶(350円)のボタンがあり、押すと合計金額が計算される機能だけを作ってください。」'
+            },
+            {
+                id: 12, category: 'dev', tool: 'Gemini', level: 'Advanced推奨',
+                title: 'Gフォーム申込時にGカレンダーへ自動登録するGAS',
+                icon: '🤖',
+                short: 'コピペで動く自動化スクリプト(GAS)を生成させる。',
+                prompt: '「Googleフォームで予約が入ったら、自動的にGoogleカレンダーに予定を追加するGoogle Apps Script (GAS) のコードを書いてください。設定手順も素人向けに詳しく教えてください。」'
+            },
+            {
+                id: 13, category: 'dev', tool: 'NotebookLM', level: '無料版でOK',
+                title: '長文マニュアルPDFから「FAQチャットボット」作成',
+                icon: '📚',
+                short: '資料を読み込ませるだけで、即席のお問合せ窓口に。',
+                prompt: '（自社の分厚いマニュアルPDFをアップロードして）「あなたは当社のサポート担当です。これから私がお客様のふりをして質問するので、このマニュアルに基づいて回答してください。」'
+            },
+            {
+                id: 14, category: 'dev', tool: 'NotebookLM', level: '無料版でOK',
+                title: '英語の取扱説明書を読み込ませて日本語で質問',
+                icon: '🌐',
+                short: '翻訳ソフトより賢い。文脈を理解して使い方を解説。',
+                prompt: '（海外家電の英語マニュアルPDFをアップロードして）「タイマー設定の方法が分かりません。日本語で、手順をステップバイステップで教えてください。」'
+            },
+            {
+                id: 15, category: 'dev', tool: 'Gemini', level: 'Advanced推奨',
+                title: '手書きのワイヤーフレームからWebページ生成',
+                icon: '🎨',
+                short: '紙に描いた画面レイアウトの写真を元にコードを出力。',
+                prompt: '（手書きのWeb画面案の写真を添付して）「この画像のようなレイアウトのWebサイトを作りたいです。Tailwind CSSを使って、レスポンシブ対応のHTMLコードを出力してください。」'
+            }
+        ];
+
+        // --- Render Cases ---
+        const casesGrid = document.getElementById('cases-grid');
+        
+        function renderCases(filter = 'all') {
+            casesGrid.innerHTML = '';
+            casesData.forEach(c => {
+                if (filter === 'all' || c.category === filter) {
+                    const toolColor = c.tool === 'Gemini' ? 'bg-orange-100 text-orange-800' : 'bg-teal-100 text-teal-800';
+                    const levelBadge = c.level === 'Advanced推奨' ? '<span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded ml-2 border border-red-200">✨Advanced推奨</span>' : '';
+                    
+                    const card = document.createElement('div');
+                    card.className = 'bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition cursor-pointer flex flex-col h-full fade-in';
+                    card.onclick = () => openModal(c);
+                    card.innerHTML = `
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-3">${c.icon}</span>
+                            <div>
+                                <span class="text-xs font-bold px-2 py-1 rounded ${toolColor}">${c.tool}</span>
+                                ${levelBadge}
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">${c.title}</h4>
+                        <p class="text-sm text-gray-600 flex-grow">${c.short}</p>
+                        <div class="mt-4 text-brand-600 text-sm font-bold flex items-center">
+                            プロンプト例を見る <span class="ml-1">→</span>
+                        </div>
+                    `;
+                    casesGrid.appendChild(card);
+                }
+            });
+        }
+
+        // --- Filter Logic ---
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Update active state
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-brand-600', 'text-white');
+                    b.classList.add('bg-white', 'text-gray-600');
+                });
+                e.target.classList.remove('bg-white', 'text-gray-600');
+                e.target.classList.add('bg-brand-600', 'text-white');
+                
+                // Render
+                renderCases(e.target.dataset.filter);
+            });
+        });
+
+        // --- Modal Logic ---
+        const modal = document.getElementById('case-modal');
+        const modalContent = document.getElementById('modal-content');
+
+        function openModal(data) {
+            const toolColor = data.tool === 'Gemini' ? 'text-orange-600' : 'text-teal-600';
+            modalContent.innerHTML = `
+                <div class="mb-4">
+                    <span class="text-4xl inline-block mb-2">${data.icon}</span>
+                    <h3 class="text-2xl font-bold text-gray-800">${data.title}</h3>
+                    <p class="font-medium ${toolColor} mt-1">使用ツール: ${data.tool} (${data.level})</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+                    <p class="text-gray-700">${data.short}</p>
+                </div>
+                <div class="bg-brand-50 p-5 rounded-lg border border-brand-200">
+                    <h4 class="font-bold text-brand-800 mb-2 flex items-center">
+                        <span class="mr-2">🗣️</span> そのまま使える！プロンプト（指示）例
+                    </h4>
+                    <p class="text-gray-800 whitespace-pre-wrap font-medium"> ${data.prompt} </p>
+                </div>
+                <div class="mt-6 text-center">
+                    <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" class="inline-block bg-brand-600 hover:bg-brand-700 text-white font-bold py-2 px-6 rounded-full transition">
+                        Geminiを試してみる
+                    </a>
+                </div>
+            `;
+            modal.classList.remove('hide');
+        }
+
+        function closeModal() {
+            modal.classList.add('hide');
+        }
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+
+        // --- Diagnostic Quiz Logic ---
+        const quizContainer = document.getElementById('quiz-container');
+        const quizQuestion = document.getElementById('quiz-question');
+        const quizOptions = document.getElementById('quiz-options');
+        const quizResult = document.getElementById('quiz-result');
+        const resultText = document.getElementById('result-text');
+
+        let step = 1;
+
+        function nextQuestion(answer) {
+            if (step === 1) {
+                if (answer === 'A') {
+                    // 書類・文章
+                    quizQuestion.innerHTML = "Q2. 扱う情報はどんなものが多いですか？";
+                    quizOptions.innerHTML = `
+                        <button class="quiz-btn bg-white border-2 border-brand-200 hover:border-brand-500 text-gray-700 font-medium py-3 px-6 rounded-lg transition" onclick="showResult('NotebookLM', '「長文資料のFAQ化」や「複数見積書の比較」事例がおすすめ！手持ちのPDFや文書をNotebookLMに読み込ませてみましょう。')">マニュアルや過去の資料など、長いファイル</button>
+                        <button class="quiz-btn bg-white border-2 border-brand-200 hover:border-brand-500 text-gray-700 font-medium py-3 px-6 rounded-lg transition" onclick="showResult('Gemini', '「チラシのキャッチコピー」や「クレーム返信文」事例がおすすめ！Geminiに要件を伝えて、ゼロから文章を考えてもらいましょう。')">メールの返信や、短い挨拶文、キャッチコピー</button>
+                    `;
+                } else if (answer === 'B') {
+                    // 手作業・整理
+                    quizQuestion.innerHTML = "Q2. どんな形式のデータを整理したいですか？";
+                    quizOptions.innerHTML = `
+                        <button class="quiz-btn bg-white border-2 border-brand-200 hover:border-brand-500 text-gray-700 font-medium py-3 px-6 rounded-lg transition" onclick="showResult('NotebookLM', '「会議の録音から議事録作成」事例がおすすめ！録音データをNotebookLMに投げるだけで要約してくれます。')">会議の録音や、音声データ</button>
+                        <button class="quiz-btn bg-white border-2 border-brand-200 hover:border-brand-500 text-gray-700 font-medium py-3 px-6 rounded-lg transition" onclick="showResult('Gemini Advanced', '「手書きメモからの清書」や「ミニマムPOSアプリ開発」事例がおすすめ！画像認識能力が高いGemini Advancedが活躍します。')">手書きのメモや写真、あるいは自動化の仕組みを作りたい</button>
+                    `;
+                } else {
+                    // 日常
+                    showResult('Gemini', '「冷蔵庫の写真から献立提案」や「俳句の推敲」事例がおすすめ！Geminiはあなたの良き相談相手になります。まずは気軽にチャットしてみましょう。');
+                }
+                step++;
+            }
+        }
+
+        function showResult(tool, text) {
+            quizContainer.classList.add('hide');
+            quizResult.classList.remove('hide');
+            resultText.innerHTML = `まずは <b>${tool}</b> を使ってみましょう。<br><br>${text}`;
+        }
+
+        function resetQuiz() {
+            step = 1;
+            quizResult.classList.add('hide');
+            quizContainer.classList.remove('hide');
+            quizQuestion.innerHTML = "Q1. 今、一番「面倒くさいな」「時間がかかるな」と思うことは何ですか？";
+            quizOptions.innerHTML = `
+                <button class="quiz-btn bg-white border-2 border-brand-200 hover:border-brand-500 text-gray-700 font-medium py-3 px-6 rounded-lg transition" onclick="nextQuestion('A')">文章を考えたり、資料を作ること</button>
+                <button class="quiz-btn bg-white border-2 border-brand-200 hover:border-brand-500 text-gray-700 font-medium py-3 px-6 rounded-lg transition" onclick="nextQuestion('B')">手作業の事務処理や、情報の整理</button>
+                <button class="quiz-btn bg-white border-2 border-brand-200 hover:border-brand-500 text-gray-700 font-medium py-3 px-6 rounded-lg transition" onclick="nextQuestion('C')">日々の献立や、趣味の行き詰まり</button>
+            `;
+        }
+
+        // --- Chart.js Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCases(); // Initial render
+
+            const ctx = document.getElementById('comparisonChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['文章生成力', '画像・ファイル読込', '推論・分析力', '大量データの把握', '応答速度', 'プログラミング力'],
+                    datasets: [
+                        {
+                            label: 'Gemini 無料版',
+                            data: [70, 60, 60, 50, 90, 50],
+                            backgroundColor: 'rgba(13, 148, 136, 0.2)', // Teal
+                            borderColor: 'rgba(13, 148, 136, 1)',
+                            pointBackgroundColor: 'rgba(13, 148, 136, 1)',
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Gemini Advanced (有料)',
+                            data: [95, 95, 95, 100, 80, 90],
+                            backgroundColor: 'rgba(234, 88, 12, 0.4)', // Orange
+                            borderColor: 'rgba(234, 88, 12, 1)',
+                            pointBackgroundColor: 'rgba(234, 88, 12, 1)',
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                            pointLabels: {
+                                font: { family: "'Hiragino Sans', sans-serif", size: 11, weight: 'bold' },
+                                color: '#475569'
+                            },
+                            ticks: { display: false, min: 0, max: 100 }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { font: { family: "'Hiragino Sans', sans-serif" } } },
+                        tooltip: { enabled: true }
+                    }
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
