@@ -134,6 +134,63 @@ h1 {
     height: 16px;
 }
 
+/* --- フィーチャーカード（プロジェクト紹介） --- */
+
+.featured {
+    margin-bottom: 2.5rem;
+}
+
+.featured-card {
+    display: block;
+    background: linear-gradient(135deg, #2b8fdb 0%, #1d6fa5 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.featured-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(43, 143, 219, 0.3);
+}
+
+.featured-label {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.2rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+.featured-title {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.featured-desc {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* --- セクションタイトル --- */
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #bfdbfe;
+}
+
 footer {
     text-align: center;
     margin-top: 4rem;
