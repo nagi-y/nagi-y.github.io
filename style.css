@@ -2,8 +2,8 @@
 
 body {
     font-family: 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
-    background: #0f172a;
-    color: #e2e8f0;
+    background: #f0f7ff;
+    color: #1e293b;
     min-height: 100vh;
 }
 
@@ -21,12 +21,12 @@ header {
 h1 {
     font-size: 2rem;
     font-weight: 700;
-    color: #f8fafc;
+    color: #0f172a;
     margin-bottom: 0.5rem;
 }
 
 .subtitle {
-    color: #94a3b8;
+    color: #64748b;
     font-size: 0.95rem;
 }
 
@@ -36,15 +36,15 @@ h1 {
 }
 
 .tool-card {
-    background: #1e293b;
-    border: 1px solid #334155;
+    background: #ffffff;
+    border: 1px solid #bfdbfe;
     border-radius: 12px;
     padding: 1.5rem;
     transition: border-color 0.2s, transform 0.2s;
 }
 
 .tool-card:hover {
-    border-color: #60a5fa;
+    border-color: #2b8fdb;
     transform: translateY(-2px);
 }
 
@@ -65,17 +65,19 @@ h1 {
     letter-spacing: 0.05em;
 }
 
-.badge-web { background: #1d4ed8; color: #bfdbfe; }
-.badge-ext { background: #7c3aed; color: #ddd6fe; }
+.badge-web { background: #dbeafe; color: #1d4ed8; }
+.badge-ext { background: #ede9fe; color: #7c3aed; }
+.badge-article { background: #d1fae5; color: #059669; }
+.badge-page { background: #e0f2fe; color: #0284c7; }
 
 .tool-name {
     font-size: 1.15rem;
     font-weight: 600;
-    color: #f1f5f9;
+    color: #0f172a;
 }
 
 .tool-desc {
-    color: #94a3b8;
+    color: #475569;
     font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 1rem;
@@ -89,8 +91,8 @@ h1 {
 }
 
 .tech-tag {
-    background: #0f172a;
-    color: #64748b;
+    background: #e0f2fe;
+    color: #0369a1;
     padding: 0.15rem 0.5rem;
     border-radius: 4px;
     font-size: 0.75rem;
@@ -114,18 +116,18 @@ h1 {
 }
 
 .btn-primary {
-    background: #2563eb;
+    background: #2b8fdb;
     color: #fff;
 }
 
-.btn-primary:hover { background: #1d4ed8; }
+.btn-primary:hover { background: #1d7ac0; }
 
 .btn-secondary {
-    background: #334155;
-    color: #cbd5e1;
+    background: #e2e8f0;
+    color: #475569;
 }
 
-.btn-secondary:hover { background: #475569; }
+.btn-secondary:hover { background: #cbd5e1; }
 
 .btn svg {
     width: 16px;
@@ -135,7 +137,7 @@ h1 {
 footer {
     text-align: center;
     margin-top: 4rem;
-    color: #475569;
+    color: #94a3b8;
     font-size: 0.8rem;
 }
 
@@ -144,7 +146,7 @@ footer a {
     text-decoration: none;
 }
 
-footer a:hover { color: #94a3b8; }
+footer a:hover { color: #2b8fdb; }
 
 /* --- サブページ共通 --- */
 
@@ -156,9 +158,9 @@ footer a:hover { color: #94a3b8; }
 }
 
 .page h2 {
-    color: #cbd5e1;
+    color: #1e293b;
     margin-top: 2rem;
-    border-bottom: 1px solid #334155;
+    border-bottom: 1px solid #bfdbfe;
     padding-bottom: 0.3rem;
 }
 
@@ -166,13 +168,13 @@ footer a:hover { color: #94a3b8; }
 .page li { margin-bottom: 0.5rem; }
 
 .page code {
-    background: #1e293b;
+    background: #e0f2fe;
     padding: 0.15rem 0.4rem;
     border-radius: 4px;
     font-size: 0.9em;
 }
 
-a { color: #60a5fa; }
+a { color: #2b8fdb; }
 
 .back {
     display: inline-block;
@@ -182,6 +184,4 @@ a { color: #60a5fa; }
     font-size: 0.9rem;
 }
 
-.back:hover { color: #94a3b8; }
-
-.badge-article { background: #059669; color: #d1fae5; }
+.back:hover { color: #2b8fdb; }
