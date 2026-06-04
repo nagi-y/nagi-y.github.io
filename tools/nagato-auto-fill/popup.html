@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body { width: 320px; padding: 15px; font-family: "Helvetica Neue", Arial, sans-serif; background: #f9f9f9; color: #333; }
+        h2 { margin: 0 0 15px; font-size: 16px; color: #5f6368; border-bottom: 2px solid #4285f4; padding-bottom: 5px; }
+
+        .form-group { margin-bottom: 12px; }
+        label { display: block; font-weight: bold; margin-bottom: 4px; font-size: 12px; }
+
+        /* 日付・時刻入力用スタイル */
+        .date-row { display: flex; gap: 10px; }
+        .date-col { flex: 1; }
+        input[type="date"], input[type="time"] {
+            width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 13px;
+        }
+
+        /* テンプレ選択ラジオ（種別が増えても折り返して並ぶ） */
+        .radio-group { display: flex; flex-wrap: wrap; gap: 8px 15px; margin-top: 5px; background: #fff; padding: 10px; border-radius: 4px; border: 1px solid #ddd; }
+        .radio-label { font-weight: normal; font-size: 13px; display: flex; align-items: center; cursor: pointer; }
+        .radio-label input { margin-right: 5px; }
+
+        /* デバッグチェックボックス用 */
+        .debug-option { margin-top: 10px; font-size: 12px; color: #666; display: flex; align-items: center; }
+        .debug-option input { margin-right: 5px; }
+
+        button { width: 100%; padding: 10px; background-color: #4285f4; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: bold; transition: background 0.2s; margin-top: 10px; }
+        button:hover { background-color: #357ae8; }
+        #status { margin-top: 10px; font-size: 12px; color: #d93025; min-height: 1.2em; text-align: center; }
+    </style>
+</head>
+<body>
+    <h2>📋 施設予約自動入力</h2>
+
+    <div class="form-group">
+        <label>講座種別 (Template)</label>
+        <div class="radio-group" id="templateGroup"></div>
+    </div>
+
+    <div class="form-group">
+        <label>使用日 (Date)</label>
+        <input type="date" id="dateInput">
+    </div>
+
+    <div class="form-group">
+        <div class="date-row">
+            <div class="date-col">
+                <label>開始 (Start)</label>
+                <input type="time" id="startTime">
+            </div>
+            <div class="date-col">
+                <label>終了 (End)</label>
+                <input type="time" id="endTime">
+            </div>
+        </div>
+    </div>
+
+    <label class="debug-option">
+        <input type="checkbox" id="debugMode" checked> ログを表示する (Debug Mode)
+    </label>
+
+    <button id="fillBtn">自動入力実行</button>
+    <div id="status"></div>
+
+    <!-- config.js を先に読み込むことで popup でも種別定義を参照できる -->
+    <script src="config.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
