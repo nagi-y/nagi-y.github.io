@@ -1,10 +1,56 @@
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.action === "fill_form") {
-        const engine = new FormEngine(request.data);
-        engine.run();
+        runFill(request.data);
         sendResponse({ status: "success" });
     }
 });
+
+// ==========================================================
+// 2ページ構成対応 (v3.1)
+//   このフォームは「メール+同意 → 次へ → 本体」の2ページ構成。
+//   1ページ目で実行された場合はメール・同意を入力して「次へ」を
+//   自動クリックし、遷移先で残りを自動入力する（意図は
+//   sessionStorage 経由で持ち越す。送信は必ず人間が押す）。
+// ==========================================================
+const NAGATO_PENDING_KEY = "nagatoAutoFillPending";
+
+function nagatoFindNavButton(label) {
+    return Array.from(document.querySelectorAll('[role="button"]'))
+        .find(b => (b.innerText || "").trim() === label);
+}
+
+function nagatoIsPage1() {
+    // 「次へ」ボタンがある間は1ページ目（2ページ目は「送信」「戻る」）
+    return !!nagatoFindNavButton("次へ");
+}
+
+function runFill(data) {
+    const engine = new FormEngine(data);
+    engine.run();
+
+    if (nagatoIsPage1()) {
+        sessionStorage.setItem(NAGATO_PENDING_KEY, JSON.stringify(data));
+        const next = nagatoFindNavButton("次へ");
+        // 同意チェックの反映を待ってから遷移
+        if (next) setTimeout(() => next.click(), 400);
+    }
+}
+
+// ページ読み込み時: 1ページ目からの持ち越しがあれば2ページ目を自動入力
+(function nagatoResumePendingFill() {
+    let raw = null;
+    try { raw = sessionStorage.getItem(NAGATO_PENDING_KEY); } catch (e) { return; }
+    if (!raw) return;
+    if (nagatoIsPage1()) return; // 遷移に失敗して1ページ目のまま（同意未入力等）
+
+    sessionStorage.removeItem(NAGATO_PENDING_KEY);
+    const start = () => {
+        try { runFill(JSON.parse(raw)); } catch (e) { console.warn("nagato-auto-fill: 持ち越し入力に失敗", e); }
+    };
+    // フォーム描画完了を待つ
+    if (document.readyState === "complete") setTimeout(start, 600);
+    else window.addEventListener("load", () => setTimeout(start, 600));
+})();
 
 // ==========================================================
 // FormEngine
@@ -31,7 +77,8 @@ class FormEngine {
         // --- 通常項目マップ（ブロックタイトル部分一致 → 値） ---
         this.simpleMap = {
             ...config.staticValues,
-            "使用施設名": this.template.facility,   // ★種別ごと
+            // ★種別ごとの施設。テンプレ未指定なら staticValues の値を残す（旧config互換）
+            "使用施設名": this.template.facility || config.staticValues["使用施設名"] || "",
             "使用目的": this.template.purpose,
             "フリー欄": this.template.freeText,
             "使用開始予定日時": data.startDate,
