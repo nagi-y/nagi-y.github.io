@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="物語に登場する人物の表層から内面、口調までを読む。"><title>伯爵の人物考察 — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="page studies-page"><p class="eyebrow">CHARACTER STUDIES</p><h1>伯爵の人物考察</h1><p class="intro">登場人物を、見せる顔、内側に抱えるもの、言葉の選び方から読む。読者としての見立てを記したもので、作者による確定設定や医学的な診断ではありません。</p><p class="studies-warning">人物の背景や関係性に触れます。作品を先に読みたい方はご注意ください。</p><div class="study-grid"><a class="study-card" href="/eternal-radiance/characters/mouri-mototaka/"><small>戦国BASARA</small><h2>毛利元陽</h2><strong>人に合わせる才と、役目の外の自分</strong><p>人を読む若様は、自分の望みをどこまで読めているのか。</p><span>人物考察を読む →</span></a><a class="study-card" href="/eternal-radiance/characters/kazaya-yukimichi/"><small>名探偵コナン</small><h2>風夜雪道</h2><strong>力を持ち、使う理由を問い続ける人</strong><p>穏やかな少年と風夜の当主。その両方が同じ雪道を形づくる。</p><span>人物考察を読む →</span></a><a class="study-card" href="/eternal-radiance/characters/kazaya-kaede/"><small>名探偵コナン</small><h2>風夜楓</h2><strong>忍の才と、楓自身の生活</strong><p>明るく人懐こい戦忍が、自分の名で何を選ぶのか。</p><span>人物考察を読む →</span></a><a class="study-card" href="/eternal-radiance/characters/fuma-kotaro/"><small>戦国BASARA</small><h2>風魔小太郎</h2><strong>寡黙な忍が自分で選ぶ「護る」</strong><p>忠義の刃であると同時に、主へ異議を返せる人。</p><span>人物考察を読む →</span></a><a class="study-card" href="/eternal-radiance/characters/furuya-rei/"><small>名探偵コナン</small><h2>降谷零</h2><strong>信頼しながら異議を言う人</strong><p>国への責任と、目の前の人への世話が同居する。</p><span>人物考察を読む →</span></a><a class="study-card" href="/eternal-radiance/characters/kazaya-michinari/"><small>名探偵コナン</small><h2>風夜道就</h2><strong>預かった年月に意味を見いだす人</strong><p>かつての当主、今の実務家。格式の奥には笑いもある。</p><span>人物考察を読む →</span></a><a class="study-card" href="/eternal-radiance/characters/sakaki/"><small>名探偵コナン</small><h2>榊</h2><strong>仕事の鋭さと、私生活の天然さ</strong><p>見えた危険には迷わず動く。相手の気持ちには時々遅れる。</p><span>人物考察を読む →</span></a><a class="study-card" href="/eternal-radiance/characters/momo/"><small>名探偵コナン</small><h2>桃</h2><strong>驚いたことを自分の言葉で伝える人</strong><p>怖さと信頼を分けて、榊のしたことを見る。</p><span>人物考察を読む →</span></a></div></main></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

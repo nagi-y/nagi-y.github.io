@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="旧サイト公開版を収録。"><title>愛し闇の魂よ — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="reader" data-rating="all"><div class="reader-tools"><button data-font="down" aria-label="文字を小さく">−</button><span>文字</span><button data-font="up" aria-label="文字を大きく">＋</button></div><a class="back" href="/eternal-radiance/archive/">← 作品書庫へ</a><div class="warnings"><b>注意</b><span>原作改変・独自設定</span></div><header><p>光を纏いて闇を孕む</p><h1>愛し闇の魂よ</h1><span>短編</span></header><article id="prose" class="prose"><p>魂(たま)は彷徨い彷徨いて巡り往く</p>
+<p>玉(たま)は巡り巡りて主を捜す</p>
+<p>そぉら、そら</p>
+<p>あの闇は何処(どこ)へ往く</p>
+<p>あの魂は何処(どこ)へ往く</p>
+<p>嘆きは何処(いずこ)ぞ叫ばれん</p>
+<p>彼方此方か其処元か</p>
+<p>ひたりひたりと闇を矯め</p>
+<p>愛(う)き君は何処(いずこ)にて咎を憂う</p>
+<p>されば吾は更なる災禍を振り撒かん</p>
+<p>玉の連なれば君は笑む？</p>
+<p>されば吾は美し魂の数珠を君に与うるぞ</p>
+<p>愛し君は暫し待ってたもれ</p>
+<p>さらば準備は致そうぞ</p>
+<p>闇の淵にて待ちとみせ</p>
+<hr>
+<p>(120518)</p>
+<p>大地は誰をも呑み込まん</p>
+<p>海原は誰をも呑み込まん</p>
+<p>冥府は愛し君を包み込む</p>
+</article></main><script>
+    let size = Number(localStorage.getItem('er-font') || 18);
+    const prose = document.querySelector('#prose');
+    const setSize = () => prose && (prose.style.fontSize = size + 'px');
+    setSize();
+    document.querySelectorAll('[data-font]').forEach((button) => button.addEventListener('click', () => {
+      size = Math.max(16, Math.min(24, size + (button.dataset.font === 'up' ? 1 : -1)));
+      localStorage.setItem('er-font', size);
+      setSize();
+    }));
+    const gate = document.querySelector('#age-gate');
+    const reader = document.querySelector('[data-rating="R18"]');
+    if (gate && reader) {
+      const admitted = sessionStorage.getItem('er-r18') === 'yes';
+      reader.classList.toggle('age-locked', !admitted);
+      gate.hidden = admitted;
+      document.querySelector('#age-enter')?.addEventListener('click', () => {
+        sessionStorage.setItem('er-r18', 'yes');
+        reader.classList.remove('age-locked');
+        gate.hidden = true;
+      });
+    }
+  </script></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

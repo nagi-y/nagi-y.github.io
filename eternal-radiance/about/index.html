@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="古い小説と、その続きを置くための個人書庫。"><title>この場所について — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="page about"><p class="eyebrow">ABOUT THIS ARCHIVE</p><h1>Eternal Radiance<br><small>久遠の光</small></h1><div><p>かつて書いた物語と、これから書くかもしれない物語のための個人書庫。</p><p>夜を知りながら、それをことさらに顔へ出さない者たち。泥の中で藻掻いた跡を読者にだけ見せ、最後には細い一条の光を選び取る者たち。その道行を収めている。</p><p>since 2008</p></div></main></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

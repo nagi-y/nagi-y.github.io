@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="国への責任と、目の前の人への世話が同居する。"><title>降谷零 — 伯爵の人物考察 — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="reader journal-reader study-reader"><div class="reader-tools"><button data-font="down" aria-label="文字を小さく">−</button><span>文字</span><button data-font="up" aria-label="文字を大きく">＋</button></div><a class="back" href="/eternal-radiance/characters/">← 人物考察一覧へ</a><header><p>伯爵の人物考察 · 名探偵コナン</p><h1>降谷零</h1><span>信頼しながら異議を言う人</span></header><p class="study-caution">人物の背景や関係性に触れます。以下は読者の考察です。</p><nav class="study-contents" aria-label="この人物考察の見出し"><a href="#人から見える姿">人から見える姿</a><a href="#その奥にあるもの">その奥にあるもの</a><a href="#口調">口調</a><a href="#読み続けたいところ">読み続けたいところ</a></nav><article id="prose" class="prose journal-prose study-prose"><h2 id="人から見える姿">人から見える姿</h2>
+<p>仕事では警戒を解かず、相手の能力と忠義を結果で測る。必要なら汚れた策も引き受ける。一方、近くにいる人の食事や疲れを見過ごせず、作戦の外にある身体の世話まで焼く。</p>
+<h2 id="その奥にあるもの">その奥にあるもの</h2>
+<p>雪道が日本を守ろうとしていることを理解しながら、彼の判断を無条件には預からない。同じ対象を守るからこそ、危険を負う本人の意思や公安の責任を巡って意見を持つ。信頼は異論を消す約束ではなく、異論を持ったまま共に考える関係として読める。</p>
+<h2 id="口調">口調</h2>
+<p>公の場では丁寧な問いに試す鋭さが混ざる。身近な相手には世話焼きの命令形も出る。雪道には親しい呼び名と柔らかな敬語を用いるが、そのままはっきり制止できる。語気の変化は相手との距離と判断の重さを伝える。</p>
+<h2 id="読み続けたいところ">読み続けたいところ</h2>
+<p>自分も危険な仕事を人に任せる立場だから、綺麗な正論だけでは裁けない。雪道の策をどこまで認め、どこで止めるか。その線を自身の言葉と責任で引くところに彼らしさがある。</p>
+</article><a class="back journal-bottom" href="/eternal-radiance/characters/">← 人物考察一覧へ</a></main><script>
+    let size = Number(localStorage.getItem('er-font') || 18);
+    const prose = document.querySelector('#prose');
+    const setSize = () => prose && (prose.style.fontSize = size + 'px');
+    setSize();
+    document.querySelectorAll('[data-font]').forEach((button) => button.addEventListener('click', () => {
+      size = Math.max(16, Math.min(24, size + (button.dataset.font === 'up' ? 1 : -1)));
+      localStorage.setItem('er-font', size);
+      setSize();
+    }));
+  </script></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

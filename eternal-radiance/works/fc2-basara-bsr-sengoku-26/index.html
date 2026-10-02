@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="旧サイト公開版を収録。"><title>黒禍より来られたし (似非染小太郎) — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="reader" data-rating="all"><div class="reader-tools"><button data-font="down" aria-label="文字を小さく">−</button><span>文字</span><button data-font="up" aria-label="文字を大きく">＋</button></div><a class="back" href="/eternal-radiance/archive/">← 作品書庫へ</a><div class="warnings"><b>注意</b><span>原作改変・独自設定</span></div><header><p>光を纏いて闇を孕む</p><h1>黒禍より来られたし (似非染小太郎)</h1><span>短編</span></header><article id="prose" class="prose"><p>宵闇より来越し召しませ、お出でませ</p>
+<p>闇夜に浮かぶ、白き影――――</p>
+<p>ク、とわらいごえ。</p>
+<p>常と同じで、異なる気配にバッと布団を跳ね上げて――体の上へ加わった重みに寝所故に晒されていた左目もうっすら、開いた。</p>
+<p>「、…………、」</p>
+<p>「クク……」</p>
+<p>戦場を風となって駆けるその姿に一見相違はない。暗闇の中、一際目立つ白の髪。僅かな光を反射して、それは月のように凛と、浮かび上がっていた。</p>
+<p>口を開こうとして、結局はくはくと言葉を飲み込んだ僕と、そして常の彼とは対称的に、男は喉を鳴らしてニィと口角を釣り上げる。</p>
+<p>「代替わりにしては急だな、小太郎？」</p>
+<p>「『あるじ、あるじ、我が生涯唯一の、』……ックク…」</p>
+<p>「おやおや…キミはどうやら大きな幼子か…。遊んでやろうか、この身から滲み出る闇を甘味なおやつとして」</p>
+<p>身を乗り出して、手を僕の耳元につけ支えとして、舌足らずの子供のような声を囁く。その様子が親鳥にさえずる雛に見えて、そっと頬を取った。</p>
+<p>また彼の唇は愉悦に歪み、片手でするりと兜を取り去った。金属音のする中はらりと落ちた白、その奥の血色がすぃと開いた。</p>
+<hr>
+<p>(120324)</p>
+<p>染め小太郎って私の中のイメージだと無双的何様俺様忍様な小太郎様だった筈なんだけど。</p>
+<p>どーしてこうなった。</p>
+</article></main><script>
+    let size = Number(localStorage.getItem('er-font') || 18);
+    const prose = document.querySelector('#prose');
+    const setSize = () => prose && (prose.style.fontSize = size + 'px');
+    setSize();
+    document.querySelectorAll('[data-font]').forEach((button) => button.addEventListener('click', () => {
+      size = Math.max(16, Math.min(24, size + (button.dataset.font === 'up' ? 1 : -1)));
+      localStorage.setItem('er-font', size);
+      setSize();
+    }));
+    const gate = document.querySelector('#age-gate');
+    const reader = document.querySelector('[data-rating="R18"]');
+    if (gate && reader) {
+      const admitted = sessionStorage.getItem('er-r18') === 'yes';
+      reader.classList.toggle('age-locked', !admitted);
+      gate.hidden = admitted;
+      document.querySelector('#age-enter')?.addEventListener('click', () => {
+        sessionStorage.setItem('er-r18', 'yes');
+        reader.classList.remove('age-locked');
+        gate.hidden = true;
+      });
+    }
+  </script></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

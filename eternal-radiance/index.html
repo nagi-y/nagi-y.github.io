@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="古い小説と、その続きを置くための個人書庫。"><title>Eternal Radiance — 久遠の光</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main><section class="hero"><div class="hero-copy"><p class="eyebrow">SINCE 2008 · FICTION ARCHIVE</p><h1>夜を抜けたあとも、<br>物語は続いていく。</h1><p class="lead">古い小説と、その続きを置くための書庫。<br>綺麗な顔をして歩く者たちの、読者にだけ見える道行。</p><div class="actions"><a class="primary" href="/eternal-radiance/archive/">作品を読む →</a><a href="/eternal-radiance/series/waien/">シリーズから辿る →</a></div></div><div class="rings"></div><div class="dawn"></div></section><section class="section"><div class="heading"><div><p class="eyebrow">THE ARCHIVE</p><h2>世界ごとの書架</h2></div><p>363作品を収録</p></div><div class="shelves"><a href="/eternal-radiance/series/basara/"><span>戦国BASARA</span><b>190作品<br>書架を開く →</b></a><a href="/eternal-radiance/series/reborn/"><span>家庭教師ヒットマンREBORN!</span><b>38作品<br>書架を開く →</b></a><a href="/eternal-radiance/series/ff14/"><span>FINAL FANTASY XIV</span><b>36作品<br>書架を開く →</b></a><a href="/eternal-radiance/series/suikoden/"><span>幻想水滸伝</span><b>31作品<br>書架を開く →</b></a><a href="/eternal-radiance/series/conan/"><span>名探偵コナン</span><b>20作品<br>書架を開く →</b></a><a href="/eternal-radiance/series/tokyo-ghoul/"><span>東京喰種</span><b>19作品<br>書架を開く →</b></a><a href="/eternal-radiance/series/other/"><span>その他</span><b>11作品<br>書架を開く →</b></a><a href="/eternal-radiance/series/touken-basara/"><span>刀剣乱舞 × 戦国BASARA</span><b>10作品<br>書架を開く →</b></a><a href="/eternal-radiance/series/tiarcrice/"><span>幻想水滸伝ティアクライス</span><b>6作品<br>書架を開く →</b></a><a href="/eternal-radiance/series/donten/"><span>曇天に笑う</span><b>1作品<br>書架を開く →</b></a><a href="/eternal-radiance/series/titan/"><span>進撃の巨人</span><b>1作品<br>書架を開く →</b></a></div></section><section class="section study-feature"><div class="heading"><div><p class="eyebrow">CHARACTER STUDIES</p><h2>伯爵の人物考察</h2></div></div><p class="intro">人が見せる顔、その奥の願い、言葉の選び方。元陽、雪道、楓、小太郎たちを、物語をまたいで読んだ記録。</p><a class="study-feature-link" href="/eternal-radiance/characters/">人物考察を読む →</a></section></main></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

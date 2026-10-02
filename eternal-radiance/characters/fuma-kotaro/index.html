@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="忠義の刃であると同時に、主へ異議を返せる人。"><title>風魔小太郎 — 伯爵の人物考察 — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="reader journal-reader study-reader"><div class="reader-tools"><button data-font="down" aria-label="文字を小さく">−</button><span>文字</span><button data-font="up" aria-label="文字を大きく">＋</button></div><a class="back" href="/eternal-radiance/characters/">← 人物考察一覧へ</a><header><p>伯爵の人物考察 · 戦国BASARA</p><h1>風魔小太郎</h1><span>寡黙な忍が自分で選ぶ「護る」</span></header><p class="study-caution">人物の背景や関係性に触れます。以下は読者の考察です。</p><nav class="study-contents" aria-label="この人物考察の見出し"><a href="#人から見える姿">人から見える姿</a><a href="#その奥にあるもの">その奥にあるもの</a><a href="#口調">口調</a><a href="#読み続けたいところ">読み続けたいところ</a></nav><article id="prose" class="prose journal-prose study-prose"><h2 id="人から見える姿">人から見える姿</h2>
+<p>気配を消し、危険にはすぐ動く。護衛も身の回りの世話も無駄がない。その寡黙さは判断や感情の少なさではなく、声より先に呼吸、影、手の動きで伝える人の形でもある。</p>
+<h2 id="その奥にあるもの">その奥にあるもの</h2>
+<p>元陽と過ごすうち、命令を守ることと元陽を生かしたい気持ちが重なり、時に衝突する。主のすべてに従うだけなら護れない場面で、身体を支え、必要な異論を示す。主の近くにいる唯一の者でありたいという誇りもあるから、献身だけで説明しきれない。</p>
+<h2 id="口調">口調</h2>
+<p>報告や返答は短く、「元陽様」「主」と呼び、礼を守る。作品では声そのものだけでなく、風、視線、気配や身振りが言葉になる。内心の「俺」には戸惑いも喜びも表れ、親しい時に見せる僅かな言い淀みや笑みがよく響く。</p>
+<h2 id="読み続けたいところ">読み続けたいところ</h2>
+<p>護るために反対する時、相手の願いと周囲の助けをどこまで残せるか。危険な技と厳しい作法を持ったまま、自分の情を選んでいく小太郎を見ていたい。</p>
+</article><aside class="reading-paths" aria-label="この人物が登場する作品"><section><h2>この人物が登場する作品</h2><ul><li><a href="/eternal-radiance/works/yume-wa-yume-dewa-nakunatta/">『夢は夢ではなくなりました』→</a></li><li><a href="/eternal-radiance/works/kitto-mata-raise-de/">『きっとまた、来世で』→</a></li><li><a href="/eternal-radiance/works/waga-na-wa/">『我が名は、』→</a></li></ul></section></aside><a class="back journal-bottom" href="/eternal-radiance/characters/">← 人物考察一覧へ</a></main><script>
+    let size = Number(localStorage.getItem('er-font') || 18);
+    const prose = document.querySelector('#prose');
+    const setSize = () => prose && (prose.style.fontSize = size + 'px');
+    setSize();
+    document.querySelectorAll('[data-font]').forEach((button) => button.addEventListener('click', () => {
+      size = Math.max(16, Math.min(24, size + (button.dataset.font === 'up' ? 1 : -1)));
+      localStorage.setItem('er-font', size);
+      setSize();
+    }));
+  </script></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

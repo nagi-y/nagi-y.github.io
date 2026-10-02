@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="旧サイト公開版を収録。"><title>あったかもしれない一場面 — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="reader" data-rating="all"><div class="reader-tools"><button data-font="down" aria-label="文字を小さく">−</button><span>文字</span><button data-font="up" aria-label="文字を大きく">＋</button></div><a class="back" href="/eternal-radiance/archive/">← 作品書庫へ</a><div class="warnings"><b>注意</b><span>原作改変・独自設定</span></div><header><p>天地を冠する者</p><h1>あったかもしれない一場面</h1><span>短編</span></header><article id="prose" class="prose"><p>突如として上空に現れた白蘭は、此度の戦いでさらに腕を上げた綱吉の攻撃をものともせずに人差指だけで受け止めると、そのまま死ぬ気の炎を放ち、その威力でもって地に叩き伏せた。</p>
+<p>少し離れている所で怪我人の回復を行っていた双子はただその様子を見ているだけだったが、その後の白蘭の行動に珍しく――素の感情を表に出してしまった。</p>
+<p>目を丸くして一瞬ポカンとして。</p>
+<p>これまた珍しく兄よりも先に我に返った、は怪我人の治癒の事も忘れて、助走も何もなしに地面を蹴り――一瞬で白蘭の頭上に到達すると、気付かれるよりも前に勢いを付けてその背から生えている２対のモノに両踵を落とした。</p>
+<p>そして左手の【風】を顕現させて自らの背に純白の翼を広げ、逆光の位置にいるため自然と目を細める――その上痛みに頬も引きつらせる、自分と同じく翼を背負う青年にビシリと指を突き付けた。スゥと軽く息を吸って、叫ぶ。</p>
+<p>「こぉらぁあああっ！！！　白蘭！　白い翼と、もっと言えばこの際大人の事情で説明やら何やら省くけど、その腰につけてる匣の中身！　龍は僕の専売特許だっ！！！！！　誰の許可を得ておおっぴらに生やしてるんだ！！！！！」</p>
+<p>その後、味方も敵も一斉に沈黙したのは語らずもがな。</p>
+<hr>
+<p>なーんて、未来編でのギャグがあってもいいよねとか、びゃっくんに惚れるまでは思ってました(<em>´∀｀</em>）←</p>
+<p>実際、翼も龍も、、さん使ったことないけd←←</p>
+<p>脳内妄想では常に風に乗ってのびのびと文字通り羽を伸ばして飛んでます、あの人。</p>
+<p>そんなんで、本誌を見て思わず…；</p>
+<p>もうコミックスでも出たからいいですよね！←遅い←だから大人の事情発動←←</p>
+<p>それではぶっこわれ、さんすみませんでした！</p>
+<p>(100824)</p>
+<p>というか未来でこんな状況になりえない今の脳内プロット／(・∀・）＼←</p>
+</article></main><script>
+    let size = Number(localStorage.getItem('er-font') || 18);
+    const prose = document.querySelector('#prose');
+    const setSize = () => prose && (prose.style.fontSize = size + 'px');
+    setSize();
+    document.querySelectorAll('[data-font]').forEach((button) => button.addEventListener('click', () => {
+      size = Math.max(16, Math.min(24, size + (button.dataset.font === 'up' ? 1 : -1)));
+      localStorage.setItem('er-font', size);
+      setSize();
+    }));
+    const gate = document.querySelector('#age-gate');
+    const reader = document.querySelector('[data-rating="R18"]');
+    if (gate && reader) {
+      const admitted = sessionStorage.getItem('er-r18') === 'yes';
+      reader.classList.toggle('age-locked', !admitted);
+      gate.hidden = admitted;
+      document.querySelector('#age-enter')?.addEventListener('click', () => {
+        sessionStorage.setItem('er-r18', 'yes');
+        reader.classList.remove('age-locked');
+        gate.hidden = true;
+      });
+    }
+  </script></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

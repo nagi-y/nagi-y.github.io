@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="旧サイト公開版を収録。"><title>すべての記憶の始まり(fin) — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="reader" data-rating="all"><div class="reader-tools"><button data-font="down" aria-label="文字を小さく">−</button><span>文字</span><button data-font="up" aria-label="文字を大きく">＋</button></div><a class="back" href="/eternal-radiance/archive/">← 作品書庫へ</a><header><p>蒼き海の世界</p><h1>すべての記憶の始まり(fin)</h1><span>連作</span></header><article id="prose" class="prose"><p>This is a long long jurney ――― Eternal travels.</p>
+<p>　夢を視た。これはきっと、未来の夢。</p>
+<p>　僕等は夢の中で、いつも黒いコートを纏っていた。</p>
+<p>　笑って、泣いて、怒って。いつも二人で、“今”を楽しんでいた。</p>
+<p>　一番最初に視たのは、小さな木造の部屋の中。少しだけ揺れていて窓もなかったから、もしかしたら水の上だったのかもしれない。</p>
+<p>　不思議な夢だった。未来の僕等に乗り移っているような、そんな夢。自分の意識はあるのに、体は勝手に動いてる。僕等は並んで立っていて、目の前には黒いドレスを身に付けた女の人がいた。言葉を聞き取ることは出来なかったけど、僕達は何事かを話していて、不意に。彼女は今彼女の目の前に居る僕等じゃなくて、その内で疑問符を浮かべながらこの夢を視ている僕等に向かって口を開いた。</p>
+<p>　僕等はイレギュラーなのだと。“世界”に存在しない筈の“存在”なのだと。</p>
+<p>　定められた道筋を、変えてはならない。世界に気付かれるから。</p>
+<p>　居ない筈の存在は、“世界”には居てはならない。</p>
+<p>　強さを求めるだろう、力を求めるだろう。けれど、大きな力は戦乱に引き寄せられる。それでも生きたいのなら、更に強くならなければ。</p>
+<p>　その先でもしかすると、“世界”に打ち克つことも――出来るかもしれないから。</p>
+<p>　ただ一方的に言葉を脳に刻ませて、綺麗なシニカルな笑みを浮かべて、彼女は僕等の頭を撫でた。その途端意識が遠くなって、僕等はぼんやりとしたイメージの濁流に呑まれた。</p>
+<p>　けれど、いつものように朝、目覚めた時。</p>
+<p>　僕等は夢の事も、ずっと傍にいた筈の“誰か”の事も、何も―――覚えてはいなかった。</p>
+<hr>
+<p>(110225)</p>
+</article></main><script>
+    let size = Number(localStorage.getItem('er-font') || 18);
+    const prose = document.querySelector('#prose');
+    const setSize = () => prose && (prose.style.fontSize = size + 'px');
+    setSize();
+    document.querySelectorAll('[data-font]').forEach((button) => button.addEventListener('click', () => {
+      size = Math.max(16, Math.min(24, size + (button.dataset.font === 'up' ? 1 : -1)));
+      localStorage.setItem('er-font', size);
+      setSize();
+    }));
+    const gate = document.querySelector('#age-gate');
+    const reader = document.querySelector('[data-rating="R18"]');
+    if (gate && reader) {
+      const admitted = sessionStorage.getItem('er-r18') === 'yes';
+      reader.classList.toggle('age-locked', !admitted);
+      gate.hidden = admitted;
+      document.querySelector('#age-enter')?.addEventListener('click', () => {
+        sessionStorage.setItem('er-r18', 'yes');
+        reader.classList.remove('age-locked');
+        gate.hidden = true;
+      });
+    }
+  </script></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

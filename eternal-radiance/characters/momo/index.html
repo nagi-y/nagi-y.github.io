@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="怖さと信頼を分けて、榊のしたことを見る。"><title>桃 — 伯爵の人物考察 — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="reader journal-reader study-reader"><div class="reader-tools"><button data-font="down" aria-label="文字を小さく">−</button><span>文字</span><button data-font="up" aria-label="文字を大きく">＋</button></div><a class="back" href="/eternal-radiance/characters/">← 人物考察一覧へ</a><header><p>伯爵の人物考察 · 名探偵コナン</p><h1>桃</h1><span>驚いたことを自分の言葉で伝える人</span></header><p class="study-caution">人物の背景や関係性に触れます。以下は読者の考察です。</p><nav class="study-contents" aria-label="この人物考察の見出し"><a href="#人から見える姿">人から見える姿</a><a href="#その奥にあるもの">その奥にあるもの</a><a href="#口調">口調</a><a href="#読み続けたいところ">読み続けたいところ</a></nav><article id="prose" class="prose journal-prose study-prose"><h2 id="人から見える姿">人から見える姿</h2>
+<p>働き、暮らし、ささやかな楽しみを持つ人。榊と出会う前にも日々の生活があり、そこから自分の足で非日常へ踏み出していく。</p>
+<h2 id="その奥にあるもの">その奥にあるもの</h2>
+<p>危険な出来事は怖い。驚くほどの力にも戸惑う。それでも「榊さん自身が怖い」という話とは分けて伝えられる。彼の不得手を見落とさず、偽名や勢いにははっきり反応し、それと同じ目で人を助ける姿を格好いいと受け取る。</p>
+<h2 id="口調">口調</h2>
+<p>感じたことを曖昧にせず、具体的に返す。怖かったことも安心したことも、相手に分かるように言葉にする。榊の言葉足らずな気遣いに輪郭を与える会話が印象に残る。</p>
+<h2 id="読み続けたいところ">読み続けたいところ</h2>
+<p>榊の魅力を映すだけの存在にしてしまうと、桃自身の暮らしや選択が見えなくなる。彼女が何を怖がり、何を好み、どんな日常を選ぶかも一緒に見ていたい。</p>
+</article><a class="back journal-bottom" href="/eternal-radiance/characters/">← 人物考察一覧へ</a></main><script>
+    let size = Number(localStorage.getItem('er-font') || 18);
+    const prose = document.querySelector('#prose');
+    const setSize = () => prose && (prose.style.fontSize = size + 'px');
+    setSize();
+    document.querySelectorAll('[data-font]').forEach((button) => button.addEventListener('click', () => {
+      size = Math.max(16, Math.min(24, size + (button.dataset.font === 'up' ? 1 : -1)));
+      localStorage.setItem('er-font', size);
+      setSize();
+    }));
+  </script></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

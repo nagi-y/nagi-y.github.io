@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="旧サイトで公開されていた全2章を収録。"><title>学生生活１ 学生生活１ — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="reader" data-rating="all"><div class="reader-tools"><button data-font="down" aria-label="文字を小さく">−</button><span>文字</span><button data-font="up" aria-label="文字を大きく">＋</button></div><a class="back" href="/eternal-radiance/works/fc2-re-re-short-r-ola1/">← 学生生活１ 目次へ</a><div class="warnings"><b>注意</b><span>原作改変・独自設定</span></div><header><p>天地を冠する者</p><h1>学生生活１</h1><span>学生生活１ / 全2話</span></header><article id="prose" class="prose"><p>『高校生活』、第二弾。</p>
+<p>……と言っても青春を謳歌しよう！ …なんてのは付加的価値で。仕事です。『株式会社カルネ付属教育機関』…社員…と言うより志望者ね、その養成所とも言うけど。本社がイタリアってことで通称オーラ――なんでもscuola(スクオーラ:学校)だかららしいんだけど――ソコの視察、っていう名目で。まぁ……直接的に管理してないしね。偽名使って肩書きも取っ払って、バレた試しがない入念な変装をして、素の『オーラ』を見る、ってことで。僕等の狙いとしては先生方よか生徒。…これから大変な時期になりそうだからねぇー。それを担っていく人達を、じろりと。</p>
+<p>…さて、と。それらしき教室のスライドドアもいつの間にやら目の前にあるし――って、ああ。自己紹介しなきゃいけないんだったっけ。</p>
+<p>「はじめまして、時雨 黄と申します。」</p>
+<p>「はじめまして、時雨 青と申します。」</p>
+<p>は『黄』――陰陽五行説で『土』を表す色。</p>
+<p>そして僕、は『青』――陰陽五行説で『木』を表す色。</p>
+<p>…『木』は向こうの世界では『風』だからね。</p>
+<p>属性をナマエにして、黄と青、今日から高等部２年、総務警備課専攻クラスに編入してきます！</p>
+<hr>
+<p>拍手に置いてたののサルベージ。</p>
+<p>…やっぱり安芸賞……誤変換だけど放置←　…飽き性、ですね、私←</p>
+<p>安芸て。だめだパソが躾けられてきた←</p>
+<p>(091218)</p>
+</article><nav class="chapter-nav" aria-label="章の移動"><span></span><a rel="next" href="/eternal-radiance/works/fc2-re-re-short-r-ola1-chapter-02/"><small>次の章</small><b>第２話</b></a></nav><a class="chapter-to-index" href="/eternal-radiance/works/fc2-re-re-short-r-ola1/">目次へ戻る</a></main><script>
+    let size = Number(localStorage.getItem('er-font') || 18);
+    const prose = document.querySelector('#prose');
+    const setSize = () => prose && (prose.style.fontSize = size + 'px');
+    setSize();
+    document.querySelectorAll('[data-font]').forEach((button) => button.addEventListener('click', () => {
+      size = Math.max(16, Math.min(24, size + (button.dataset.font === 'up' ? 1 : -1)));
+      localStorage.setItem('er-font', size);
+      setSize();
+    }));
+    const gate = document.querySelector('#age-gate');
+    const reader = document.querySelector('[data-rating="R18"]');
+    if (gate && reader) {
+      const admitted = sessionStorage.getItem('er-r18') === 'yes';
+      reader.classList.toggle('age-locked', !admitted);
+      gate.hidden = admitted;
+      document.querySelector('#age-enter')?.addEventListener('click', () => {
+        sessionStorage.setItem('er-r18', 'yes');
+        reader.classList.remove('age-locked');
+        gate.hidden = true;
+      });
+    }
+  </script></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

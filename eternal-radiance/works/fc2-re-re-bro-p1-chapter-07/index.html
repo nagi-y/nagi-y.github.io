@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="旧サイトで公開されていた全21章を収録。"><title>Notte sucura 第7話 — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="reader" data-rating="all"><div class="reader-tools"><button data-font="down" aria-label="文字を小さく">−</button><span>文字</span><button data-font="up" aria-label="文字を大きく">＋</button></div><a class="back" href="/eternal-radiance/works/fc2-re-re-bro-p1/">← Notte sucura 目次へ</a><div class="warnings"><b>注意</b><span>原作改変・独自設定</span></div><header><p>天地を冠する者</p><h1>Notte sucura</h1><span>第7話 / 全21話</span></header><article id="prose" class="prose"><p>その後、注意点――骸兄達には未来の事や自分達の正体を口外しない事、記憶が完全に目醒めたお陰か精神世界に来なくとも“声”は聞こえるから、何かあればすぐに連絡する事――等々、言われずとも当然な事を口煩く言われた。</p>
+<p>そして。</p>
+<p>「君は何処から知ってる？」</p>
+<p>と、目線を左に落としながら、消えそうな声で言われた。</p>
+<p>「何処…」</p>
+<p>「あ、ごめん、何でもないって。それじゃあまた、現でね。」</p>
+<p>ハッと何時もの顔に戻ると、僕の声を遮って、スゥと消えた。</p>
+<p>…何処から。</p>
+<p>写されたとか、そんな経緯があっても記憶は記憶だから、彼らの記憶力が半端無くとも…その分量は常人とは文字通り桁違いだし、本当に昔の事は思い出せない。</p>
+<p>それでも遡っていって――、“思い出せる”のは、いきなり中学に編入させられた所まで。それ以前は、前の僕と同じように靄が掛かっている。</p>
+<p>「……知れば知る程、謎の多い人だよ、全く。」</p>
+<p>しかもその“謎”の答えを、本人が知らないなんて。</p>
+<p>記憶の中の人物の言葉を借りるとすれば、傑作。…それとも、戯言かな…。</p>
+<p>ふふふふっ、思わず笑いが込み上げてくる。</p>
+<p>あははははっ！ と一頻り嗤った後、僕も彼と同じように現に還った。</p>
+<hr>
+<p>ちょっとまた双子の過去に触れてみる。</p>
+<p>…まーえに上げてた過去編とはまた違う…けれども。</p>
+<p>とゆーか、さんは現でどーしてんだ。意識ないまま冥夜君担いで歩いてんのか？(←</p>
+<p>まぁその辺は双子だから万事おｋということｄ(ﾏﾃ</p>
+<p>(100410)</p>
+</article><nav class="chapter-nav" aria-label="章の移動"><a rel="prev" href="/eternal-radiance/works/fc2-re-re-bro-p1-chapter-06/"><small>前の章</small><b>第6話</b></a><a rel="next" href="/eternal-radiance/works/fc2-re-re-bro-p1-chapter-08/"><small>次の章</small><b>第8話</b></a></nav><a class="chapter-to-index" href="/eternal-radiance/works/fc2-re-re-bro-p1/">目次へ戻る</a></main><script>
+    let size = Number(localStorage.getItem('er-font') || 18);
+    const prose = document.querySelector('#prose');
+    const setSize = () => prose && (prose.style.fontSize = size + 'px');
+    setSize();
+    document.querySelectorAll('[data-font]').forEach((button) => button.addEventListener('click', () => {
+      size = Math.max(16, Math.min(24, size + (button.dataset.font === 'up' ? 1 : -1)));
+      localStorage.setItem('er-font', size);
+      setSize();
+    }));
+    const gate = document.querySelector('#age-gate');
+    const reader = document.querySelector('[data-rating="R18"]');
+    if (gate && reader) {
+      const admitted = sessionStorage.getItem('er-r18') === 'yes';
+      reader.classList.toggle('age-locked', !admitted);
+      gate.hidden = admitted;
+      document.querySelector('#age-enter')?.addEventListener('click', () => {
+        sessionStorage.setItem('er-r18', 'yes');
+        reader.classList.remove('age-locked');
+        gate.hidden = true;
+      });
+    }
+  </script></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

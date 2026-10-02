@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="旧サイト公開版を収録。"><title>&quot;肉&quot;の理由 — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="reader" data-rating="all"><div class="reader-tools"><button data-font="down" aria-label="文字を小さく">−</button><span>文字</span><button data-font="up" aria-label="文字を大きく">＋</button></div><a class="back" href="/eternal-radiance/archive/">← 作品書庫へ</a><div class="warnings"><b>注意</b><span>原作改変・独自設定</span></div><header><p>天地を冠する者</p><h1>&quot;肉&quot;の理由</h1><span>短編</span></header><article id="prose" class="prose"><p>「ねぇ、ー」</p>
+<p>「《会社》の名前？」</p>
+<p>「そうー。何が良いかなぁ？」</p>
+<p>「取り扱ってるものとか。『交易』とかー」</p>
+<p>「『レストラン』。」</p>
+<p>「『旅行業』……っていうのか？」</p>
+<p>「『ホテル』……言い出したらキリなさそうー。」</p>
+<p>「『沢山の』ー…、なんとか。物が沢山、って何か思い付く？」</p>
+<p>「んー、『お祭り』？」</p>
+<p>「イタリア語で『カルネヴァーレ』、だっけ？」</p>
+<p>「長いー……。んじゃ『カルネ』でいい？」</p>
+<p>「うし、決定。『カルネ』……っと。」</p>
+<p>「………ボス、本気でその名前にするんですか？」</p>
+<p>「「駄目？」」</p>
+<p>「あ、いや、反論するわけではないです、けど………。」</p>
+<p>「意味が？」</p>
+<p>「『あさり』、だもんな？『ボンゴレ』も。」</p>
+<p>「……そう、ですね…。」</p>
+<p>「いいって、こんなの適当でー♪」</p>
+<p>「日本じゃあイタリア語知ってる奴そうはいないんだしさ」</p>
+<p>「それに《こっち》だってふと思い付いたアラブ語なんだし。」</p>
+<p>「《キファーフ》……なんだっけ、《戦い》だか《指導者》だかだしね。」</p>
+<p>「そ……そうなんですか。」</p>
+<p>「っていうノリで決まったんだよー。」</p>
+<p>「『様々な事業に手を出し、貿易、食品、ホテル等のサービス業まで世界中でも大きなシェアを占めている大企業』の名前は。」</p>
+<p>「うわぁ……。」</p>
+<p>「連想ゲーム、ですか…」</p>
+<p>「そんなもんじゃない～？名付けなんて。」</p>
+<p>「それにしても……『肉』、って……。」</p>
+<hr>
+<p>…ということでふと思いついた小ネタも小ネタ。</p>
+<p>変換最初の1個だけって…！！</p>
+<p>…アラブ語のは忘れました。…ティアクラの名前決める時にちろっと調べてみただけなので。</p>
+<p>あー、こんなのあったっけー、みたいなノリなので『イッザ』やら『ザフィル』やらが混じってるかもしれないです。</p>
+<p>・・・本気で『キファーフ』ってなんだったっけ・・・・・・・orz</p>
+<p>ということで。</p>
+<p>(090809)</p>
+<p>…1か月ぶりですねーorz　すいませぬ。</p>
+</article></main><script>
+    let size = Number(localStorage.getItem('er-font') || 18);
+    const prose = document.querySelector('#prose');
+    const setSize = () => prose && (prose.style.fontSize = size + 'px');
+    setSize();
+    document.querySelectorAll('[data-font]').forEach((button) => button.addEventListener('click', () => {
+      size = Math.max(16, Math.min(24, size + (button.dataset.font === 'up' ? 1 : -1)));
+      localStorage.setItem('er-font', size);
+      setSize();
+    }));
+    const gate = document.querySelector('#age-gate');
+    const reader = document.querySelector('[data-rating="R18"]');
+    if (gate && reader) {
+      const admitted = sessionStorage.getItem('er-r18') === 'yes';
+      reader.classList.toggle('age-locked', !admitted);
+      gate.hidden = admitted;
+      document.querySelector('#age-enter')?.addEventListener('click', () => {
+        sessionStorage.setItem('er-r18', 'yes');
+        reader.classList.remove('age-locked');
+        gate.hidden = true;
+      });
+    }
+  </script></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

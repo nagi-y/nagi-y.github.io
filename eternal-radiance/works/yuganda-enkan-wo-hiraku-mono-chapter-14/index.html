@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="死と反復を越え、歪んだ歴史の円環を開く。"><title>歪んだ円環を開く者 第14章　審神者視点 — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="reader" data-rating="all"><div class="reader-tools"><button data-font="down" aria-label="文字を小さく">−</button><span>文字</span><button data-font="up" aria-label="文字を大きく">＋</button></div><a class="back" href="/eternal-radiance/works/yuganda-enkan-wo-hiraku-mono/">← 歪んだ円環を開く者 目次へ</a><div class="warnings"><b>注意</b><span>クロスオーバー</span><span>男主人公</span><span>成り代わり</span><span>転生・ループ</span><span>独自設定</span><span>流血・死亡描写</span><span>チャンネル風表現</span></div><header><p>歪円</p><h1>歪んだ円環を開く者</h1><span>第14章　審神者視点 / 全20話</span></header><article id="prose" class="prose"><p>9時ぴったりに表れた覇幻さんに、俺は最初目を見開いた。
+覇幻さんといえば明るめの黄緑、という印象が俺にすらあるというのに、イメチェンにも程があるだろう。
+いつもあの黄緑色の着物の下に着ているものだと思われる濃緑の着物を、これまた暗い黒の帯で締めている。それだけでも普段との印象が違うのに、その上に着ている羽織りは紫がかった暗い赤色だ。そんな強い色なのに派手ではなく、落ち着いた印象を持たせるのだから、きっとこれもお高いんだろうな、と低レベルな感想を抱いた。下手な賛辞を言うよりも黙っていた方が何倍もいい。きっと、出待ち連中にもみくちゃにされないためのイメチェン衣装なのだろう。彼の存在感も、いつもの眩しくて冷たい怖さのある印象ではない。ひょっとすると木陰に入った途端に溶けるんじゃ、なんて馬鹿々々しい想像をしてしまうような、希薄な印象だ。タブレットをずっと見ていた時の静かさとはまた違う。この印象の違いはどこから来るのだろうかと、少しだけ気になった。</p>
+<p>「行くぞ」
+「は、はい」</p>
+<p>羽織りの後ろは、刀よりも細い棒状のもので少しだけ持ち上がっていた。なんだあれ、と思いはしたが聞きはしなかった。スレ民が送ってくれたwikiのページを思い出す。件の、振ると火がでる采配じゃあないといいな、と諦めきった思考回路でぼんやりと思いながら、鳥居をくぐった。</p>
+</article><nav class="chapter-nav" aria-label="章の移動"><a rel="prev" href="/eternal-radiance/works/yuganda-enkan-wo-hiraku-mono-chapter-13/"><small>前の章</small><b>第13章　元就視点</b></a><a rel="next" href="/eternal-radiance/works/yuganda-enkan-wo-hiraku-mono-chapter-15/"><small>次の章</small><b>第15章　元就視点</b></a></nav><a class="chapter-to-index" href="/eternal-radiance/works/yuganda-enkan-wo-hiraku-mono/">目次へ戻る</a></main><script>
+    let size = Number(localStorage.getItem('er-font') || 18);
+    const prose = document.querySelector('#prose');
+    const setSize = () => prose && (prose.style.fontSize = size + 'px');
+    setSize();
+    document.querySelectorAll('[data-font]').forEach((button) => button.addEventListener('click', () => {
+      size = Math.max(16, Math.min(24, size + (button.dataset.font === 'up' ? 1 : -1)));
+      localStorage.setItem('er-font', size);
+      setSize();
+    }));
+    const gate = document.querySelector('#age-gate');
+    const reader = document.querySelector('[data-rating="R18"]');
+    if (gate && reader) {
+      const admitted = sessionStorage.getItem('er-r18') === 'yes';
+      reader.classList.toggle('age-locked', !admitted);
+      gate.hidden = admitted;
+      document.querySelector('#age-enter')?.addEventListener('click', () => {
+        sessionStorage.setItem('er-r18', 'yes');
+        reader.classList.remove('age-locked');
+        gate.hidden = true;
+      });
+    }
+  </script></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

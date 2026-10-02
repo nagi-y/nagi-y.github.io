@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="旧サイト公開版を収録。"><title>ねずみーぱーく (親就) — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="reader" data-rating="all"><div class="reader-tools"><button data-font="down" aria-label="文字を小さく">−</button><span>文字</span><button data-font="up" aria-label="文字を大きく">＋</button></div><a class="back" href="/eternal-radiance/archive/">← 作品書庫へ</a><div class="warnings"><b>注意</b><span>原作改変・独自設定</span></div><header><p>光を纏いて闇を孕む</p><h1>ねずみーぱーく (親就)</h1><span>短編</span></header><article id="prose" class="prose"><p>「元就、その、旅行に行かねぇか？」</p>
+<p>その一言で、全てが始まった。</p>
+<p>「男二人で何処に行こうと言うのだ、長曽我部」</p>
+<p>「いや…、チケットが安くなっててよ。舞浜まで、」</p>
+<p>如何に毛利の顔が中性的であろうと、男女のカップルの多い夢の国へ野郎二人で行く事に流石の長曽我部も多少の躊躇があるらしい。ボソボソと呟く長曽我部にしゃっきりせよ、と毛利はベシッと頭を叩いた。</p>
+<p>「ってえな……」</p>
+<p>「舞浜…という事は例の……。チケットとやらはもう買ったのか」</p>
+<p>「……っ！、おうよ！」</p>
+<p>「ならば仕方がない。ついて行ってやるとしよう」</p>
+<p>長曽我部の声色に切れ目を一度細め、顎を上げて毛利は嗤う。</p>
+<p>当日。</p>
+<p>待ち合わせ場所にはラフな格好の長曽我部と、小柄な体に不釣り合いな大きな鞄を背負った毛利がいた。時間の数10分前には既にその場にいた毛利は朝からしかめ面で、ギリギリになってやってきた長曽我部に対し端的に「遅い」と言い放った。</p>
+<p>「おめぇは早いんだよ。つかその馬鹿でかい荷物はなんだ？」</p>
+<p>「必要と思われる用具ぞ。物価が高い上に待つのであろう？ 飲み物に保存食、シートにレインコートに………」</p>
+<p>「だああ、んなに気ィ遣うなよ！！」</p>
+<p>喚いて長曽我部は毛利の荷物を掻っ浚う。手持ち無沙汰になった毛利は束の間軽くなった肩を揉んだが、ふん、と顔を伏せてさっさと歩き出した。</p>
+<hr>
+<p>(110906)</p>
+<p>某ねずみーぱーくに学科の友人sと遊びに行った際に脳内変換されていた物。</p>
+<p>いやさ、いきなりスペマンで死んだんだもの…！！！</p>
+<p>乗った事無いっつのにorz</p>
+<p>…じゃなく。ええと、閉園前にもう一度乗ろう！　って言うので、待ってるーと言いながら書いてたもの。</p>
+<p>たしか止まるだかなんだかで結局他に行くことになったせいでものっそ序盤で終わり、翌日のシーもあってお流れになった物。</p>
+</article></main><script>
+    let size = Number(localStorage.getItem('er-font') || 18);
+    const prose = document.querySelector('#prose');
+    const setSize = () => prose && (prose.style.fontSize = size + 'px');
+    setSize();
+    document.querySelectorAll('[data-font]').forEach((button) => button.addEventListener('click', () => {
+      size = Math.max(16, Math.min(24, size + (button.dataset.font === 'up' ? 1 : -1)));
+      localStorage.setItem('er-font', size);
+      setSize();
+    }));
+    const gate = document.querySelector('#age-gate');
+    const reader = document.querySelector('[data-rating="R18"]');
+    if (gate && reader) {
+      const admitted = sessionStorage.getItem('er-r18') === 'yes';
+      reader.classList.toggle('age-locked', !admitted);
+      gate.hidden = admitted;
+      document.querySelector('#age-enter')?.addEventListener('click', () => {
+        sessionStorage.setItem('er-r18', 'yes');
+        reader.classList.remove('age-locked');
+        gate.hidden = true;
+      });
+    }
+  </script></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

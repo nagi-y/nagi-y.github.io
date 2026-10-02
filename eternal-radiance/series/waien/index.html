@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="古い小説と、その続きを置くための個人書庫。"><title>歪円 — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="page"><a class="back" href="/eternal-radiance/">← トップへ</a><p class="eyebrow">DISTORTED CIRCLE</p><h1>歪円</h1><p class="intro">刀剣乱舞 × 戦国BASARA。夢として抱えたものが、別れを経て、名と責任になり、やがて歪んだ円環を開く。</p><div class="warnings"><b>含まれる要素</b><span>クロスオーバー</span><span>成り代わり</span><span>転生・ループ</span><span>独自設定</span><span>流血・死亡描写</span></div><ol class="timeline"><li><a href="/eternal-radiance/works/yume-wa-yume-dewa-nakunatta/"><small>前日譚 01</small><b>夢は夢ではなくなりました</b><span>死と反復の只中で、最初の選択が為される。</span></a></li><li><a href="/eternal-radiance/works/kitto-mata-raise-de/"><small>前日譚 02</small><b>きっとまた、来世で</b><span>名を伏せたまま、帰還と別離を引き受ける。</span></a></li><li><a href="/eternal-radiance/works/waga-na-wa/"><small>前日譚 03</small><b>我が名は、</b><span>夢の終わりで、名と責任を選び直す。</span></a></li><li><a href="/eternal-radiance/works/yuganda-enkan-wo-hiraku-mono/"><small>本編</small><b>歪んだ円環を開く者</b><span>死と反復を越え、歪んだ歴史の円環を開く。</span></a></li><li><a href="/eternal-radiance/works/seitan-kitou/"><small>番外編</small><b>生誕祈祷</b><span>三月十四日。かつて父と呼んだ人へ捧げる祈り。</span></a></li></ol><section class="series-journals" aria-labelledby="waien-journals-title"><p class="eyebrow">READING JOURNALS</p><h2 id="waien-journals-title">伯爵の感想文</h2><p class="spoiler-note">作品の展開や結末に触れます。</p><div class="journal-list"><a href="/eternal-radiance/reading-journals/2026-09-27_%E3%81%8D%E3%81%A3%E3%81%A8%E3%81%BE%E3%81%9F%E6%9D%A5%E4%B8%96%E3%81%A7/"><small>2026-09-27</small><b>『きっとまた、来世で』</b><span>感想文を読む</span></a><a href="/eternal-radiance/reading-journals/2026-09-27_%E5%A4%A2%E3%81%AF%E5%A4%A2%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8F%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%97%E3%81%9F/"><small>2026-09-27</small><b>『夢は夢ではなくなりました』</b><span>感想文を読む</span></a><a href="/eternal-radiance/reading-journals/2026-09-27_%E6%88%91%E3%81%8C%E5%90%8D%E3%81%AF/"><small>2026-09-27</small><b>『我が名は、』</b><span>感想文を読む</span></a></div></section></main></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="旧サイトで公開されていた全10章を収録。"><title>現代 — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="reader" data-rating="all"><div class="reader-tools"><button data-font="down" aria-label="文字を小さく">−</button><span>文字</span><button data-font="up" aria-label="文字を大きく">＋</button></div><a class="back" href="/eternal-radiance/archive/">← 作品書庫へ</a><div class="warnings"><b>注意</b><span>原作改変・独自設定</span></div><header><p>光を纏いて闇を孕む</p><h1>現代</h1><span>連作 · 全10篇</span></header><article id="prose" class="prose series-note"></article><section class="chapter-index" aria-labelledby="chapter-index-title"><p class="eyebrow">CONTENTS</p><h2 id="chapter-index-title">目次</h2><div class="chapter-groups"><section><ol class="timeline"><li><a href="/eternal-radiance/works/fc2-basara-bsr-sasuke-chapter-01/"><small>01</small><b>とある非日常 1</b><span>読む →</span></a></li><li><a href="/eternal-radiance/works/fc2-basara-bsr-sasuke-chapter-02/"><small>02</small><b>第2話</b><span>読む →</span></a></li><li><a href="/eternal-radiance/works/fc2-basara-bsr-sasuke-chapter-03/"><small>03</small><b>第3話</b><span>読む →</span></a></li><li><a href="/eternal-radiance/works/fc2-basara-bsr-sasuke-chapter-04/"><small>04</small><b>第4話</b><span>読む →</span></a></li><li><a href="/eternal-radiance/works/fc2-basara-bsr-sasuke-chapter-05/"><small>05</small><b>第5話</b><span>読む →</span></a></li><li><a href="/eternal-radiance/works/fc2-basara-bsr-sasuke-chapter-06/"><small>06</small><b>第6話</b><span>読む →</span></a></li><li><a href="/eternal-radiance/works/fc2-basara-bsr-sasuke-chapter-07/"><small>07</small><b>第7話</b><span>読む →</span></a></li><li><a href="/eternal-radiance/works/fc2-basara-bsr-sasuke-chapter-08/"><small>08</small><b>第8話</b><span>読む →</span></a></li><li><a href="/eternal-radiance/works/fc2-basara-bsr-sasuke-chapter-09/"><small>09</small><b>第9話</b><span>読む →</span></a></li><li><a href="/eternal-radiance/works/fc2-basara-bsr-sasuke-chapter-10/"><small>10</small><b>第10話</b><span>読む →</span></a></li></ol></section></div></section></main><script>
+    let size = Number(localStorage.getItem('er-font') || 18);
+    const prose = document.querySelector('#prose');
+    const setSize = () => prose && (prose.style.fontSize = size + 'px');
+    setSize();
+    document.querySelectorAll('[data-font]').forEach((button) => button.addEventListener('click', () => {
+      size = Math.max(16, Math.min(24, size + (button.dataset.font === 'up' ? 1 : -1)));
+      localStorage.setItem('er-font', size);
+      setSize();
+    }));
+    const gate = document.querySelector('#age-gate');
+    const reader = document.querySelector('[data-rating="R18"]');
+    if (gate && reader) {
+      const admitted = sessionStorage.getItem('er-r18') === 'yes';
+      reader.classList.toggle('age-locked', !admitted);
+      gate.hidden = admitted;
+      document.querySelector('#age-enter')?.addEventListener('click', () => {
+        sessionStorage.setItem('er-r18', 'yes');
+        reader.classList.remove('age-locked');
+        gate.hidden = true;
+      });
+    }
+  </script></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>

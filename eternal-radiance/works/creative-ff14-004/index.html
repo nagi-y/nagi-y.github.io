@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Obsidian由来の原稿。旧サイト・他媒体での公開歴と本文の版を照合中。"><title>覆面の下 — Eternal Radiance</title><link rel="icon" href="/eternal-radiance/favicon.svg" type="image/svg+xml"><script>if (localStorage.getItem('er-theme') === 'dark') document.documentElement.dataset.theme = 'dark';</script><link rel="stylesheet" href="/eternal-radiance/_astro/BaseLayout.CWy-sL3K.css"></head><body><a class="skip-link" href="#main">本文へ移動</a><header class="header"><a class="brand" href="/eternal-radiance/" aria-label="Eternal Radiance トップ"><i aria-hidden="true"></i><span><b>Eternal Radiance</b><small>久遠の光</small></span></a><nav id="nav" aria-label="サイト内の案内"><a href="/eternal-radiance/archive/">作品</a><a href="/eternal-radiance/series/waien/">歪円</a><a href="/eternal-radiance/characters/">人物考察</a><a href="/eternal-radiance/reading-journals/">読書記録</a><a href="/eternal-radiance/guide/">閲覧案内</a><a href="/eternal-radiance/about/">この場所について</a></nav><div class="tools"><button type="button" data-theme aria-label="暗い表示に切り替える">☾</button><button type="button" data-menu aria-controls="nav" aria-expanded="false" aria-label="メニューを開く">☰</button></div></header><div id="main"><main class="reader" data-rating="all"><div class="reader-tools"><button data-font="down" aria-label="文字を小さく">−</button><span>文字</span><button data-font="up" aria-label="文字を大きく">＋</button></div><a class="back" href="/eternal-radiance/archive/">← 作品書庫へ</a><p class="source-status">移行原稿 · 公開歴と本文の版を照合中の原稿。原稿の内容は収録しています。</p><div class="warnings"><b>注意</b><span>原作改変・独自設定</span></div><header><p>FINAL FANTASY XIV</p><h1>覆面の下</h1><span>短編</span></header><article id="prose" class="prose"><p>｢私｣の回顧録 #12
+覆面の下
+825文字1分
+悪夢を見た。</p>
+<p>2021年12月3日 01:47</p>
+<hr>
+<p>◆ あてんしょん ◆
+・暗黒50前提
+・ホラーなつもりはないけどホラーっぽいかもしれない
+・主は相変わらずいつも通りのゼラメスラ
+・時系列的には4.3くらいで暗黒70前後。振り返らない意思力を信じて「英雄」をしている頃。
+※ メインバレはなし</p>
+<hr>
+<p>・フレイの中身はマネキンみたいな能面らしい、と聞いて。</p>
+<hr>
+<p>悪夢を見た。きっとこれは悪夢だ。
+『怖い』と、素直に想えることに少しばかり安堵しつつ膝を抱えて自分を抱え込む。</p>
+<p>とりとめのない夢だった。
+隣には『彼』がいて、共に旅をしているようだった。じゃれ合うようにしっぽを揺らして、敵のいない、どこか穏やかな場所を歩いていた。</p>
+<p>何が切っ掛けだったのだろう、ベンチに座った彼の制止を聞かずに、夢の中の私は彼が被っているバルビュートに手を掛けた。――覆面を外す。革の頭巾を取り払う。</p>
+<p>「……もう、だから言ったのに」</p>
+<p>『頭部』であるはずのそこは、ただ目だけがこちらを向いている、『黒』だった。唇は形すらないのに、確かに言葉は紡がれている。彼には、『フレイ』の見目すら残ってはいなかった。暗黒の、どろりとした、闇。彼を構成するもの。</p>
+<p>ひ、と遅れて悲鳴が漏れた。何も回らない頭が、暴いてしまった罪悪感に塗れる前に、目の前の輪郭は不意に液体のように『溶けた』。</p>
+<p>「……！？ いや、嫌！！！！ フレイ！！！！！！」</p>
+<p>ガシャンと、彼を包んでいた鎧がベンチの上で音を立てて崩れる。溶けた闇は、水溜まりにすらならずに消え去って、</p>
+<p>「…………いや、……いや、嫌、いやぁああああああああああああぁぁぁ！！！！！！！！！！！」</p>
+<p>泣き叫びながら『残骸』を掻き集めるように抱き締めて、そうして今に至る。</p>
+<p>「…………フレイ」</p>
+<p>共に旅をしようよと言ったあなたは、本当にここにいてくれているの？ 今はどう、思っているの？
+フレイ……、ねえ、『私』。私はこのまま、『英雄』をしていいの……？</p>
+</article></main><script>
+    let size = Number(localStorage.getItem('er-font') || 18);
+    const prose = document.querySelector('#prose');
+    const setSize = () => prose && (prose.style.fontSize = size + 'px');
+    setSize();
+    document.querySelectorAll('[data-font]').forEach((button) => button.addEventListener('click', () => {
+      size = Math.max(16, Math.min(24, size + (button.dataset.font === 'up' ? 1 : -1)));
+      localStorage.setItem('er-font', size);
+      setSize();
+    }));
+    const gate = document.querySelector('#age-gate');
+    const reader = document.querySelector('[data-rating="R18"]');
+    if (gate && reader) {
+      const admitted = sessionStorage.getItem('er-r18') === 'yes';
+      reader.classList.toggle('age-locked', !admitted);
+      gate.hidden = admitted;
+      document.querySelector('#age-enter')?.addEventListener('click', () => {
+        sessionStorage.setItem('er-r18', 'yes');
+        reader.classList.remove('age-locked');
+        gate.hidden = true;
+      });
+    }
+  </script></div><footer><div><b>Eternal Radiance</b><span>久遠の光</span></div><p>Stories kept through the night.</p><span>© Eternal Radiance</span></footer><script>
+      const themeButton = document.querySelector('[data-theme]');
+      const updateThemeButton = () => {
+        const dark = document.documentElement.dataset.theme === 'dark';
+        themeButton.textContent = dark ? '☀' : '☾';
+        themeButton.setAttribute('aria-label', dark ? '明るい表示に切り替える' : '暗い表示に切り替える');
+      };
+      updateThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const dark = document.documentElement.dataset.theme !== 'dark';
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        localStorage.setItem('er-theme', dark ? 'dark' : 'light');
+        updateThemeButton();
+      });
+      const menu = document.querySelector('[data-menu]');
+      const nav = document.querySelector('#nav');
+      const closeMenu = () => {
+        nav?.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'メニューを開く');
+      };
+      menu?.addEventListener('click', () => {
+        const open = nav?.classList.toggle('open');
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+      nav?.addEventListener('click', (event) => { if (event.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+    </script></body></html>
